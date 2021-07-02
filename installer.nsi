@@ -69,12 +69,11 @@ Section "Core" SEC01
   SectionIn RO
   SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
-  File "Debug\CADauno.exe"
-  File README.txt
-  File "defaultFile.config"
-  File "examples\points.snurbs"
-  File "glut32.dll"
-  File "FreeImage.dll"
+  File "Release\CADauno.exe"
+  File "resources\defaultFile.config"
+  File "resources\points.snurbs"
+  File "dll\glut32.dll"
+  File "dlls\FreeImage.dll"
   File "AUTHOR"
   File "CHANGELOG"
   File "COPYING"
