@@ -42,6 +42,114 @@ void save_points(int id)
 
 DefaultSerializator::DefaultSerializator() {}
 
+void DefaultSerializator::init_points()
+{
+	int sdegree = 3;
+	int tdegree = 3;
+
+	S_ORDER = sdegree + 1;
+	T_ORDER = tdegree + 1;
+
+	newDegreeS = sdegree;
+	newDegreeT = tdegree;
+
+	S_NUMKNOTS = 8;
+	T_NUMKNOTS = 8;
+
+	NCP_S = 4;
+	NCP_T = 4;
+
+	if (ctrlpoints != NULL)
+		delete[] ctrlpoints;
+	ctrlpoints = new GLfloat[NCP_S * NCP_T * 4];
+
+	int i = 0;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 0.800000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.800000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.800000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.200000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.400000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+	ctrlpoints[i++] = 0.600000;
+	ctrlpoints[i++] = 0.800000;
+	ctrlpoints[i++] = 0.000000;
+	ctrlpoints[i++] = 1.000000;
+
+	multiplicity = 1;
+
+	if (skinning_tknots != NULL)
+		delete[] skinning_tknots;
+
+	skinning_tknots = new GLfloat[T_NUMKNOTS];
+
+	if (skinning_ctrlpoints != NULL)
+		delete[] skinning_ctrlpoints;
+
+	skinning_ctrlpoints = new GLfloat[NCP_S * NCP_T * 4];
+
+	knots_uniform(1);
+	knots_uniform(2);
+
+	//GLUI update
+	gluiSurfaceParametersInit();
+
+	glui->sync_live();
+}
+
 void DefaultSerializator::load_points(int id)
 {
 	char buffer[50];

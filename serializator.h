@@ -25,6 +25,7 @@ void save_points(int id);
 class Serializator
 {
 public:
+	virtual void init_points() = 0;
 	virtual void load_points(int id) = 0;
 	virtual void save_points(int id) = 0;
 };
@@ -33,6 +34,7 @@ class DefaultSerializator : public Serializator
 {
 public:
 	DefaultSerializator();
+	void init_points();
 	void load_points(int id);
 	void save_points(int id);
 };

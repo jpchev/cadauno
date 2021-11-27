@@ -762,11 +762,7 @@ void find_barycentre(GLfloat *barycentre)
 void init(void)
 {
 	int i = 0;
-	char defaultFileBuffer[50];
-	FILE *fp = fopen("defaultFile.config", "r");
-	fscanf(fp, "%s", defaultFileBuffer);
-	fclose(fp);
-	strcpy(filename, defaultFileBuffer);
+
 	old_transl_x[0] = 0;
 	old_transl_y[0] = 0;
 	old_transl_z[0] = 0;

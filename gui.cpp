@@ -223,7 +223,7 @@ void guiInit(int argc, char **argv)
 
 	multiplicity_panel = glui->add_panel_to_panel(panel, "multiplicity");
 
-	SerializatorFactory::getSerializator()->load_points(-1);
+	SerializatorFactory::getSerializator()->init_points();
 
 	rotation = glui->add_rotation_to_panel(panel, "rotation", rotation_data, -1, (GLUI_Update_CB)do_rotation);
 	z_rot_spinner = glui->add_spinner_to_panel(panel, "z_rot", GLUI_SPINNER_FLOAT, &z_rotation,
